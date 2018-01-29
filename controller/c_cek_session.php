@@ -1,0 +1,14 @@
+<?php 
+	if(isset($_SESSION['logged_in'])){
+		if($_SESSION['level']=="admin"){
+			header("location:admin/index.php");
+			exit();
+		}elseif($_SESSION['level']=="karyawan"){
+			header("location:karyawan/index.php");
+			exit();
+		}elseif($_SESSION['level']=="pemilik"){
+			header("location:pemilik/index.php");
+			exit();
+		}
+	}
+?>

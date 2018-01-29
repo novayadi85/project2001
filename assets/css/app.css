@@ -1,0 +1,11 @@
+.chosen-container , .chosen-container-single .chosen-single{
+	height: 35px !important
+}
+
+.chosen-container-single .chosen-single span{
+	padding: 5px 0;
+}
+
+.chosen-container-single .chosen-single div b{
+	background-position: 0px 5px !important
+}

@@ -1,0 +1,8 @@
+{
+    "require": {
+		"phpoffice/phpexcel": "1.8"
+    },
+	"autoload": {
+      "psr-0": {"SqlFire": "src/"}
+	}
+}
