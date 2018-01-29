@@ -73,13 +73,14 @@
 		});
 		$('.calculate').change(function(){
 			if(bonus == "" || typeof bonus == 'undefined'){
-				alert("Tentukan Jenis Bonus terlebih dahulu...");
+				swal("Sorry!", "Tentukan Jenis Bonus terlebih dahulu...!", "error");
 				$(this).val('');
 				return false;
 			}
 			
 			if(absensi == "" || typeof absensi == 'undefined'){
-				alert("Tentukan data absensi terlebih dahulu...");
+				//alert("Tentukan data absensi terlebih dahulu...");
+				swal("Sorry!", "Tentukan data absensi terlebih dahulu...!", "error");
 				$(this).val('');
 				return false;
 			}

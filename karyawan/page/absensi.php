@@ -36,7 +36,7 @@
 				data: {table:dTable},
 				success: function(xhr){
 					if(xhr.error){
-						alert("Error, Data tidak valid.")
+						swal("Sorry!", "Data tidak valid...!", "error");
 					}
 					else{
 						window.open(xhr.file);
