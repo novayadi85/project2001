@@ -44,6 +44,9 @@
 			});
 		});
     });
+	
+	
+	
 </script>
 <!--four-grids here-->
 <div class="agileinfo-grap">

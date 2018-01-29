@@ -234,7 +234,7 @@
 			$_SESSION["flashmessage"] = "File tidak valid";
 		}
 	
-		header("location:index.php?tag=absensi");
+		header("location:index.php?tag=absensi&success=true");
 		exit();
 	}
 	

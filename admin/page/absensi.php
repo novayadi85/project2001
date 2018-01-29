@@ -28,6 +28,32 @@
 			table.api().ajax.reload();
 		});
     });
+	
+	<?php 
+	if(isset($_GET["success"]) && $_GET["success"] == "true"){
+		print 'swal("Success!", "Data sudah terimport...!", "success");';
+		print 'setTimeout(function(){ 
+			window.location = "/penggajian/admin/index.php?tag=absensi";
+		}, 2000);';
+	}
+	?>
+
+	function importnow(){
+		swal({
+		  title: "Apakah anda yakin untuk import file ini??",
+		  icon: "warning",
+		  buttons: true,
+		  dangerMode: true,
+		})
+		.then((willDelete) => {
+		  if (willDelete) {
+			return true;
+		  } else {
+			return false;
+		  }
+		});
+	}
+	
 </script>
 <!-- //tables -->
 <?php
@@ -117,7 +143,7 @@
          </div>
 							</form>
                             <?php }else{ ?>
-                            	<form class="form-horizontal" method="post" action="" enctype="multipart/form-data">
+                            	<form class="form-horizontal"  method="post" action="" enctype="multipart/form-data">
                                     <div class="form-group">
                                     <div class="col-sm-8">
 										<input type="file" class="form-control" id="focusedinput" name="file_absensi">
