@@ -78,10 +78,12 @@
 		$print = array();
 		if($lists){
 			while ($data = mysqli_fetch_assoc($lists)): 
+			$dateObj   = DateTime::createFromFormat('!m', $data["periode"]);
+			$monthName = $dateObj->format('F');
 			$no = ($x + 1);
 			$print[$x][] = $no;
 			$print[$x][] = $data["nama_karyawan"];
-			$print[$x][] = date("F",strtotime($data["periode"]));
+			$print[$x][] = $monthName;
 			$print[$x][] = date("Y/m/d",strtotime($data["tanggal"]));
 			//$print[$x][] = $data["tahun"];
 			$print[$x][] = number_format($data["gaji_pokok"],0,",",".");

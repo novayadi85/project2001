@@ -10,7 +10,9 @@
 		$year = '0000';
 		if(isset($_POST["periode"])){
 			$periode = $_POST["periode"];
-			$periode = date("F",strtotime($periode)); 
+			//$periode = date("F",strtotime($periode));
+			$dateObj   = DateTime::createFromFormat('!m', $periode);
+			$periode = $dateObj->format('F');			
 		}
 		if(isset($_POST["year"])){
 			$year = $_POST["year"];

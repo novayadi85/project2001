@@ -1,4 +1,10 @@
-
+<?php 
+if(isset($data["periode"])){
+	$periode = $data["periode"];
+	$dateObj   = DateTime::createFromFormat('!m', $periode);
+	$data["periode"] = $dateObj->format('F');			
+}
+?>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -14,7 +20,7 @@
 			<div class="pull-right">
 				<div class="text-right">
 				<p><label class="label">Tanggal </label><label class="value"><?=$data["tanggal"];?></label></p>
-				<label class="label">Periode </label><label class="value"><?=date("F",$data["periode"]);?></label>
+				<label class="label">Periode </label><label class="value"><?=$data["periode"];?></label>
 				
 				</div>	
 			</div>	
