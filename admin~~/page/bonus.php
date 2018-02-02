@@ -1,8 +1,6 @@
 <!-- tables -->
 <link rel="stylesheet" type="text/css" href="../css/table-style.css" />
 <link rel="stylesheet" type="text/css" href="../css/basictable.css" />
-<link rel="stylesheet" type="text/css" href="../assets/css/sweetalert.css" />
-<script type="text/javascript" src="../assets/js/sweetalert.min.js"></script>
 <script type="text/javascript" src="../js/jquery.basictable.min.js"></script>
 <link rel="stylesheet" type="text/css" href="../assets/libs/chosen/chosen.css" />
 <script type="text/javascript" src="../assets/libs/chosen/chosen.jquery.js"></script>
@@ -22,6 +20,7 @@
 		$datau=editBonus($kode_bonus);
 		// $datau=mysqli_fetch_array($editUser);
 			$kode_bonus=$datau['kode_bonus'];
+			$kode_karyawan=$datau['kode_karyawan'];
 			$periode=$datau['periode'];
 			$tahun=$datau['tahun'];
 			$pendapatan_bengkel=$datau['pendapatan_bengkel'];
@@ -34,27 +33,6 @@
 <!--four-grids here-->
 <div class="agileinfo-grap">
 <div class="agileits-box">
-
-<?php 
-$status=$_GET['success'];
-$transaction=$_GET['transaction'];
-if(@$_GET['success']=="true"){
-				
-?>
-<script>
-	 <?php 
-	 if($transaction=='add')
-	 {
-			echo "swal('Add Success!', 'You clicked the button!','success')";
-	 } 
-	 if($transaction=='update')
-	 {
-			echo "swal('Update Success!', 'You clicked the button!','success')";			
-	 }
-	 ?>
-</script>
-<?php } ?>
-
 <header class="agileits-box-header clearfix">
  <div class="grid-form1">
   	       <h3>Data Bonus</h3>
@@ -129,6 +107,7 @@ if(@$_GET['success']=="true"){
   <tr  align="center">
   		<td width="6%">No.</td>
   		<td width="6%">Kode Bonus</td>
+        <td width="6%">Kode Karyawan</td>
         <td width="6%">Periode</td>
         <td width="6%">Tahun</td>
  		<td width="10%">Pendapatan Bengkel</td>
@@ -146,6 +125,7 @@ if(@$_GET['success']=="true"){
   <tr>
   	  	<td width="6%"> <?php echo $no; ?> </td>
         <td width="6%"> <?php echo $data['kode_bonus']; ?> </td>
+ 		<td width="6%"> <?php echo $data['kode_karyawan']; ?> </td>
         <td width="6%"> <?php echo $data['periode']; ?> </td>
         <td width="6%"> <?php echo $data['tahun']; ?> </td>
 	  	<td width="6%"> <?php echo $data['pendapatan_bengkel']; ?> </td>
@@ -154,6 +134,7 @@ if(@$_GET['success']=="true"){
         <td width="3%" align="center">
         		<a href="index.php?tag=bonus&aksi=edit&kode_bonus=<?php echo $data['kode_bonus']; ?>"><i class="fa fa-pencil" title="Edit"> </i></a>
         		&nbsp;&nbsp;
+        		<a href="index.php?tag=bonus&aksi=delete&kode_bonus=<?php echo $data['kode_bonus']; ?>"><i class="fa fa-trash" title="Delete"> </i></a>
         </td>
   </tr>  
   <?php $no++; } ?>

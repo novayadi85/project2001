@@ -1,6 +1,4 @@
 <link rel="stylesheet" type="text/css" href="../assets/libs/chosen/chosen.css" />
-<link rel="stylesheet" type="text/css" href="../assets/css/sweetalert.css" />
-<script type="text/javascript" src="../assets/js/sweetalert.min.js"></script>
 <script type="text/javascript" src="../assets/libs/chosen/chosen.jquery.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
@@ -31,7 +29,7 @@
 		});
     });
 	
-		<?php 
+	<?php 
 	if(isset($_GET["success"]) && $_GET["success"] == "true"){
 		print 'swal("Success!", "Data sudah terimport...!", "success");';
 		print 'setTimeout(function(){ 
@@ -55,7 +53,7 @@
 		  }
 		});
 	}
-		
+	
 </script>
 <!-- //tables -->
 <?php
@@ -81,27 +79,6 @@
 <!--four-grids here-->
 <div class="agileinfo-grap">
 <div class="agileits-box">
-
-<?php 
-$status=$_GET['success'];
-$transaction=$_GET['transaction'];
-if(@$_GET['success']=="true"){
-				
-?>
-<script>
-	 <?php 
-	 if($transaction=='add')
-	 {
-			echo "swal('Add Success!', 'You clicked the button!','success')";
-	 } 
-	 if($transaction=='update')
-	 {
-			echo "swal('Update Success!', 'You clicked the button!','success')";			
-	 }
-	 ?>
-</script>
-<?php } ?>
-
 <header class="agileits-box-header clearfix">
  <div class="grid-form1">
   	       <h3>Data Absensi</h3>
@@ -166,7 +143,7 @@ if(@$_GET['success']=="true"){
          </div>
 							</form>
                             <?php }else{ ?>
-                            	<form class="form-horizontal" method="post" action="" enctype="multipart/form-data">
+                            	<form class="form-horizontal"  method="post" action="" enctype="multipart/form-data">
                                     <div class="form-group">
                                     <div class="col-sm-8">
 										<input type="file" class="form-control" id="focusedinput" name="file_absensi">

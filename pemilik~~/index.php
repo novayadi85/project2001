@@ -4,11 +4,11 @@
 		header("location:../index.php");
 		exit();
 	}else{
-		if($_SESSION['level']=="admin"){
-			header("location:../admin/index.php");
+		if($_SESSION['level']=="karyawan"){
+			header("location:../karyawan/index.php");
 			exit();
-		}elseif($_SESSION['level']=="pemilik"){
-			header("location:../pemilik/index.php");
+		}elseif($_SESSION['level']=="admin"){
+			header("location:../admin/index.php");
 			exit();
 		}
 	}
@@ -43,6 +43,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="../assets/css/font-awesome.css" rel="stylesheet"> 
 <!-- jQuery -->
 <script src="../assets/js/jquery-2.1.4.min.js"></script>
+<script src="../assets/js/sweetalert.min.js"></script>
 <!-- //jQuery -->
 <link href='//fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400' rel='stylesheet' type='text/css'/>
 <link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
@@ -75,9 +76,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<li class="dropdown profile_details_drop">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 											<div class="profile_img">	
-												<span class="prfil-img"><img src="../assets/images/user.png" alt=""> </span> 
+												<span class="prfil-img"><img src="../assets/images/in4.jpg" alt=""> </span> 
 												<div class="user-name">
-													<p><?php print ($_SESSION["nama"]);?></p>
+													<p><?php  print ($_SESSION["nama"]);?></p>
 													<span><?php print ($_SESSION["level"]);?></span>
 												</div>
 												<i class="fa fa-angle-down"></i>
@@ -86,6 +87,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											</div>	
 										</a>
 										<ul class="dropdown-menu drp-mnu">
+											<li> <a href="#"><i class="fa fa-cog"></i> Settings</a> </li> 
+											<li> <a href="#"><i class="fa fa-user"></i> Profile</a> </li> 
 											<li> <a href="../controller/c_logout.php"><i class="fa fa-sign-out"></i> Logout</a> </li>
 										</ul>
 									</li>
@@ -96,9 +99,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 <!--heder end here-->
 		<ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.php">Halaman Karyawan</a> <i class="fa fa-angle-right"></i></li>
-			<span style="text-transform:capitalize;"><?=$tag;?></span>
-		   </ol>
+                <li class="breadcrumb-item"><a href="index.php">Halaman Pemilik Perusahaan</a> <i class="fa fa-angle-right"></i></li>
+				<span style="text-transform:capitalize;"><?=$tag;?></span>
+            </ol>
 
 <?PHP
 include "page/".$tag.".php";
@@ -126,8 +129,10 @@ include "page/".$tag.".php";
 										<li><a href="index.php"><i class="fa fa-home"></i> <span>Dashboard</span><div class="clearfix"></div></a></li>
 										
 										
-										 <li id="menu-academico" ><a href="index.php?tag=absensi"><i class="fa fa-user"></i><span>Absen Saya</span><div class="clearfix"></div></a></li>
-									 <li><a href="index.php?tag=slipgaji"><i class="fa  fa-plus-square"></i>  <span>Slip Gaji</span><div class="clearfix"></div></a></li>
+										 <li id="menu-academico" ><a href="index.php?tag=karyawan"><i class="fa fa-user"></i><span>Data Karyawan</span><div class="clearfix"></div></a></li>
+										 <li id="menu-academico" ><a href="index.php?tag=absensi"><i class="fa fa-user"></i><span>Data Absensi</span><div class="clearfix"></div></a></li>
+									<li id="menu-academico" ><a href="index.php?tag=bonus"><i class="fa fa-asl-interpreting (alias)" aria-hidden="true"></i><span>Data Bonus</span><div class="clearfix"></div></a></li>
+									 <li><a href="index.php?tag=rekapgaji"><i class="fa  fa-plus-square"></i>  <span>Laporan Rekap Gaji</span><div class="clearfix"></div></a></li>
 									<li><a href="../controller/c_logout.php"><i class="fa fa-external-link"></i><span>Logout</span><div class="clearfix"></div></a>
 									  
 									</li>

@@ -1,8 +1,6 @@
 <!-- tables -->
 <link rel="stylesheet" type="text/css" href="../assets/css/datepicker.css" />
-<link rel="stylesheet" type="text/css" href="../assets/css/sweetalert.css" />
 <script type="text/javascript" src="../assets/js/bootstrap-datepicker.js"></script>
-<script type="text/javascript" src="../assets/js/sweetalert.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
 		var table = $('#table1').dataTable({
@@ -52,36 +50,12 @@
 <!--four-grids here-->
 <div class="agileinfo-grap">
 <div class="agileits-box">
-<?php 
-$status=$_GET['success'];
-$transaction=$_GET['transaction'];
-if(@$_GET['success']=="true"){
-				
-?>
-<script>
-	 <?php 
-	 if($transaction=='add')
-	 {
-			echo "swal('Add Success!', 'You clicked the button!','success')";
-	 } 
-	 if($transaction=='update')
-	 {
-			echo "swal('Update Success!', 'You clicked the button!','success')";			
-	 }
-	 ?>
-</script>
-<!--
+<?php if(@$_GET['success']=="true"){?>
 <div class="alert alert-success" id="success-alert" style="display: none; opacity: 500;">
     <button type="button" class="close" data-dismiss="alert">x</button>
     <strong>Success! </strong>
-</div>-->
+</div>
 <?php } ?>
-<?php
-if(@$_GET['success']=="false")
-{
-	echo"<script>alert('false')</script>";
-}
-?>
 <header class="agileits-box-header clearfix">
   <div class="grid-form1">
   	       <h3>Data Karyawan</h3>
@@ -135,23 +109,23 @@ if(@$_GET['success']=="false")
                                     <div class="form-group">
 									<label for="selector1" class="col-sm-2 control-label">Jabatan</label>
 									<div class="col-sm-8"><select name="jabatan" id="selector1" class="form-control1">
-										<option value="Manager Service" <?php if(@$jabatan=='mgr_service'){ echo "selected"; }  ?>>Manager Service</option>
-										<option value="Manager Spare Part" <?php if(@$jabatan=='mgr_spart'){ echo "selected"; }  ?>>Manager Spare Part</option>
-										<option value="Foreman" <?php if(@$jabatan=='foreman'){ echo "selected"; }  ?>>Foreman</option>
-										<option value="Final Inspector" <?php if(@$jabatan=='final_inspector'){ echo "selected"; }  ?>>Final Inspector</option>
-                                        <option value="Service Advisor" <?php if(@$jabatan=='service_advisor'){ echo "selected"; }  ?>>Service Advisor</option>
-                                        <option value="Mekanik" <?php if(@$jabatan=='mekanik'){ echo "selected"; }  ?>>Mekanik</option>
-                                        <option value="Service" <?php if(@$jabatan=='service'){ echo "selected"; }  ?>>Service</option>
-                                        <option value="Staf Spare Part" <?php if(@$jabatan=='staf_spart'){ echo "selected"; }  ?>>Staf Spare Part</option>
-                                        <option value="Head Administrasi" <?php if(@$jabatan=='head_adm'){ echo "selected"; }  ?>>Head Administrasi</option>
-                                        <option value="Kasir" <?php if(@$jabatan=='kasir'){ echo "selected"; }  ?>>Kasir</option>
-                                        <option value="Staf Administrasi" <?php if(@$jabatan=='staf_adm'){ echo "selected"; }  ?>>Staf Administrasi</option>
-                                        <option value="CRO" <?php if(@$jabatan=='cro'){ echo "selected"; }  ?>>CRO</option>
-                                        <option value="Samsat" <?php if(@$jabatan=='samsat'){ echo "selected"; }  ?>>Samsat</option>
-                                        <option value="Office Girl/Boy" <?php if(@$jabatan=='ob'){ echo "selected"; }  ?>>Office Girl/Boy</option>
-                                        <option value="Tukang Cuci" <?php if(@$jabatan=='tkg_cuci'){ echo "selected"; }  ?>>Tukang Cuci</option>
-                                        <option value="Sopir" <?php if(@$jabatan=='sopir'){ echo "selected"; }  ?>>Sopir</option>
-                                        <option value="Security" <?php if(@$jabatan=='security'){ echo "selected"; }  ?>>Security</option>
+										<option value="mgr_service" <?php if(@$jabatan=='mgr_service'){ echo "selected"; }  ?>>Manager Service</option>
+										<option value="mgr_spart" <?php if(@$jabatan=='mgr_spart'){ echo "selected"; }  ?>>Manager Spare Part</option>
+										<option value="foreman" <?php if(@$jabatan=='foreman'){ echo "selected"; }  ?>>Foreman</option>
+										<option value="final_inspector" <?php if(@$jabatan=='final_inspector'){ echo "selected"; }  ?>>Final Inspector</option>
+                                        <option value="service_advisor" <?php if(@$jabatan=='service_advisor'){ echo "selected"; }  ?>>Service Advisor</option>
+                                        <option value="mekanik" <?php if(@$jabatan=='mekanik'){ echo "selected"; }  ?>>Mekanik</option>
+                                        <option value="service" <?php if(@$jabatan=='service'){ echo "selected"; }  ?>>Service</option>
+                                        <option value="staf_spart" <?php if(@$jabatan=='staf_spart'){ echo "selected"; }  ?>>Staf Spare Part</option>
+                                        <option value="head_adm" <?php if(@$jabatan=='head_adm'){ echo "selected"; }  ?>>Head Administrasi</option>
+                                        <option value="kasir" <?php if(@$jabatan=='kasir'){ echo "selected"; }  ?>>Kasir</option>
+                                        <option value="staf_adm" <?php if(@$jabatan=='staf_adm'){ echo "selected"; }  ?>>Staf Administrasi</option>
+                                        <option value="cro" <?php if(@$jabatan=='cro'){ echo "selected"; }  ?>>CRO</option>
+                                        <option value="samsat" <?php if(@$jabatan=='samsat'){ echo "selected"; }  ?>>Samsat</option>
+                                        <option value="ob" <?php if(@$jabatan=='ob'){ echo "selected"; }  ?>>Office Girl/Boy</option>
+                                        <option value="tkg_cuci" <?php if(@$jabatan=='tkg_cuci'){ echo "selected"; }  ?>value="foreman" <?php if(@$jabatan=='foreman'){ echo "selected"; }  ?>>Tukang Cuci</option>
+                                        <option value="sopir" <?php if(@$jabatan=='sopir'){ echo "selected"; }  ?>>Sopir</option>
+                                        <option value="security" <?php if(@$jabatan=='security'){ echo "selected"; }  ?>>Security</option>
                                         
 									</select></div>
 								</div>

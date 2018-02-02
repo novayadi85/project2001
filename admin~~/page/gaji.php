@@ -3,8 +3,6 @@
 <script type="text/javascript" src="../assets/libs/chosen/chosen.jquery.js"></script>
 <link rel="stylesheet" type="text/css" href="../assets/css/datepicker.css" />
 <script type="text/javascript" src="../assets/js/bootstrap-datepicker.js"></script>
-<link rel="stylesheet" type="text/css" href="../assets/css/sweetalert.css" />
-<script type="text/javascript" src="../assets/js/sweetalert.min.js"></script>
 <?php
 	$tahun = "";
 	$periode = "";
@@ -75,13 +73,14 @@
 		});
 		$('.calculate').change(function(){
 			if(bonus == "" || typeof bonus == 'undefined'){
-				alert("Tentukan Jenis Bonus terlebih dahulu...");
+				swal("Sorry!", "Tentukan Jenis Bonus terlebih dahulu...!", "error");
 				$(this).val('');
 				return false;
 			}
 			
 			if(absensi == "" || typeof absensi == 'undefined'){
-				alert("Tentukan data absensi terlebih dahulu...");
+				//alert("Tentukan data absensi terlebih dahulu...");
+				swal("Sorry!", "Tentukan data absensi terlebih dahulu...!", "error");
 				$(this).val('');
 				return false;
 			}
@@ -156,25 +155,16 @@
 <!--four-grids here-->
 <div class="agileinfo-grap">
 <div class="agileits-box">
+<?php if(@$_GET['success']=="true"){?>
+<div class="alert alert-success" id="success-alert" style="display: none; opacity: 500;">
+    <button type="button" class="close" data-dismiss="alert">x</button>
+    <strong>Success! </strong>
+</div>
 <?php 
-$status=$_GET['success'];
-$transaction=$_GET['transaction'];
-if(@$_GET['success']=="true"){
-				
-?>
-<script>
-	 <?php 
-	 if($transaction=='add')
-	 {
-			echo "swal('Add Success!', 'You clicked the button!','success')";
-	 } 
-	 if($transaction=='update')
-	 {
-			echo "swal('Update Success!', 'You clicked the button!','success')";			
-	 }
-	 ?>
-</script>
-<?php } ?>
+$periode = $_GET["periode"];
+$tahun = $_GET["tahun"];
+
+} ?>
 <header class="agileits-box-header clearfix">
   <div class="grid-form1">
   	       <h3>Data Gaji</h3>
@@ -342,7 +332,7 @@ if(@$_GET['success']=="true"){
 				<label class="form-label">Periode </label>
 				<br>
 				<select class="chosen form-control periode">
-					<?php echo $Helper->months();?>
+					<?php echo $Helper->months($periode);?>
 				</select>
 			</div>
 			<div class="col-md-2">
@@ -350,7 +340,7 @@ if(@$_GET['success']=="true"){
 				<br>
 				<select class="chosen form-control tahun">
 					<?php 
-					echo $Helper->years();
+					echo $Helper->years($tahun);
 					?>
 				</select>
 			</div>
@@ -403,6 +393,7 @@ if(@$_GET['success']=="true"){
         <td width="3%" align="center">
         		<a href="index.php?tag=gaji&aksi=edit&kode_gaji=<?php echo $data['kode_gaji']; ?>"><i class="fa fa-pencil" title="Edit"> </i></a>
         		&nbsp;&nbsp;
+        		<a href="index.php?tag=gaji&aksi=delete&kode_gaji=<?php echo $data['kode_gaji']; ?>"><i class="fa fa-trash" title="Delete"> </i></a>
         </td>
   </tr>  
   <?php $no++; } **/ ?>

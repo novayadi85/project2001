@@ -35,7 +35,7 @@
 				data: {table:dTable},
 				success: function(xhr){
 					if(xhr.error){
-						swal("Sorry!", "Data tidak valid...!", "error");
+						alert("Error, Data tidak valid.")
 					}
 					else{
 						window.open(xhr.file);
@@ -44,9 +44,6 @@
 			});
 		});
     });
-	
-	
-	
 </script>
 <!--four-grids here-->
 <div class="agileinfo-grap">

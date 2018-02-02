@@ -45,7 +45,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="../assets/css/font-awesome.css" rel="stylesheet"> 
 <!-- jQuery -->
 <script src="../assets/js/jquery-2.1.4.min.js"></script>
-<script src="../assets/js/sweetalert.min.js"></script>
 <script src="../assets/js/app.js"></script>
 <!-- //jQuery -->
 
@@ -77,7 +76,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<li class="dropdown profile_details_drop">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 											<div class="profile_img">	
-												<span class="prfil-img"><img src="../assets/images/in4.jpg" alt=""> </span> 
+												<span class="prfil-img"><img src="../assets/images/user.png" alt=""> </span> 
 												<div class="user-name">
 													<p><?php print ($_SESSION["nama"]);?></p>
 													<span><?php print ($_SESSION["level"]);?></span>
@@ -89,8 +88,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											</div>	
 										</a>
 										<ul class="dropdown-menu drp-mnu">
-											<li> <a href="#"><i class="fa fa-cog"></i> Settings</a> </li> 
-											<li> <a href="#"><i class="fa fa-user"></i> Profile</a> </li> 
 											<li> <a href="../controller/c_logout.php"><i class="fa fa-sign-out"></i> Logout</a> </li>
 										</ul>
 									</li>
@@ -114,7 +111,7 @@ include "page/".$tag.".php";
 <!--agileinfo-grap-->
 <!--copy rights start here-->
 <div class="copyrights">
-	 <p>© 2017 Payroll PT. DAIM. All Rights Reserved | Design by  Hari Purnami </p>
+	 <p>© 2018 Payroll PT. DAIM. All Rights Reserved</p>
 </div>	
 <!--COPY rights end here-->
 </div>

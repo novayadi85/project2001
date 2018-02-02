@@ -1,5 +1,4 @@
-<link rel="stylesheet" type="text/css" href="../assets/css/sweetalert.css" />
-<script type="text/javascript" src="../assets/js/sweetalert.min.js"></script>
+
 <script type="text/javascript">
     $(document).ready(function() {
       $('#table').DataTable();
@@ -25,37 +24,18 @@
 <!--four-grids here-->
 <div class="agileinfo-grap">
 <div class="agileits-box">
-<?php 
-$status=@$_GET['success'];
-$transaction=@$_GET['transaction'];
-if(@$_GET['success']=="true"){
-				
-?>
-<script>
-	 <?php 
-	 if($transaction=='add')
-	 {
-			echo "swal('Add Success!', 'You clicked the button!','success')";
-	 } 
-	 if($transaction=='update')
-	 {
-			echo "swal('Update Success!', 'You clicked the button!','success')";			
-	 }
-	 ?>
-</script>
-<?php } ?>
 <header class="agileits-box-header clearfix">
  <div class="grid-form1">
   	       <h3>Data User</h3>
   	         <div class="tab-content">
 						<div class="tab-pane active" id="horizontal-form">
 							<form class="form-horizontal" method="post" action="">
-							<!-- 	<div class="form-group">
+								<div class="form-group">
 									<label for="focusedinput" class="col-sm-2 control-label">Kode User</label>
 									<div class="col-sm-8">
 										<input type="text" class="form-control1" id="focusedinput" placeholder="Kode User" name="kode_user" value="<?php echo @$kode_user; ?>" <?php if(@$_GET['aksi']=="edit"){ echo "readonly"; } ?> >
 									</div>
-								</div> -->
+								</div>
                                	<!-- <div class="form-group">
 									<label for="focusedinput" class="col-sm-2 control-label">Nama Lengkap</label>
 									<div class="col-sm-8">
@@ -111,7 +91,7 @@ if(@$_GET['success']=="true"){
                                  <div class="form-group">
 									<label for="focusedinput" class="col-sm-2 control-label">Password</label>
 									<div class="col-sm-8">
-										<input type="password" class="form-control1" id="focusedinput" placeholder="Password" name="password" value="<?php echo @$password; ?>">
+										<input type="text" class="form-control1" id="focusedinput" placeholder="Password" name="password" value="<?php echo @$password; ?>">
 									</div>
                                     </div>
                                     <br /><div class="panel-footer">
@@ -141,16 +121,15 @@ if(@$_GET['success']=="true"){
 </header>
 <br>
 <div class="grid-form1">
-	<table width="100%" id="table" class="display">
+	<table width="100%" id="table" border="1">
 	<thead>
   <tr  align="center">
-  		<td width="3%">No</td>
-  		<td width="3%">Kode User</td>
-        <td width="8%">Kode Karyawan</td>
- 		<td width="16%">Nama User</td>
+  		<td width="6%">No</td>
+  		<td width="6%">Kode User</td>
+        <td width="6%">Kode Karyawan</td>
+ 		<td width="13%">Nama User</td>
 	  	<td width="6%">Username</td>
         <td width="6%">Passwod</td>
-        <td width="6%">Level</td>
         <td width="3%">Aksi</td>
         
   </tr>
@@ -162,16 +141,16 @@ if(@$_GET['success']=="true"){
 	
   ?>
   <tr class="odd" style="border-bottom:1px solid #999;">
-  	  	<td width="3%"> <?php echo $no; ?> </td>
-        <td width="3%"> <?php echo $data['kode_user']; ?> </td>
- 		<td width="8%"> <?php echo $data['kode_karyawan']; ?> </td>
-	  	<td width="16%"> <?php echo $data['nama_user']; ?> </td>
+  	  	<td width="6%"> <?php echo $no; ?> </td>
+        <td width="6%"> <?php echo $data['kode_user']; ?> </td>
+ 		<td width="13%"> <?php echo $data['kode_karyawan']; ?> </td>
+	  	<td width="6%"> <?php echo $data['nama_user']; ?> </td>
         <td width="6%"> <?php echo $data['username']; ?> </td>
         <td width="6%"> <?php echo $data['password']; ?> </td>
-        <td width="6%"> <?php echo $data['level']; ?> </td>
         <td width="3%" align="center">
         		<a href="index.php?tag=user&aksi=edit&kode_user=<?php echo $data['kode_user']; ?>"><i class="fa fa-pencil" title="Edit"> </i></a>
         		&nbsp;&nbsp;
+        		<a href="index.php?tag=user&aksi=delete&kode_user=<?php echo $data['kode_user']; ?>"><i class="fa fa-trash" title="Delete"> </i></a>
         </td>
   </tr>  
   <?php $no++; } ?>

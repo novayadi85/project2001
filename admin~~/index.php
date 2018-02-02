@@ -4,8 +4,8 @@
 		header("location:../index.php");
 		exit();
 	}else{
-		if($_SESSION['level']=="admin"){
-			header("location:../admin/index.php");
+		if($_SESSION['level']=="karyawan"){
+			header("location:../karyawan/index.php");
 			exit();
 		}elseif($_SESSION['level']=="pemilik"){
 			header("location:../pemilik/index.php");
@@ -21,6 +21,7 @@
 	require_once "../db/koneksi.php";
 	include_once "../model/$tag/m_$tag.php";
 	include_once "../controller/$tag/c_$tag.php";
+	// menentukan halaman menu yang ada //
 
 ?>
 
@@ -39,24 +40,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- Custom CSS -->
 <link href="../assets/css/style.css" rel='stylesheet' type='text/css' />
 <link rel="stylesheet" href="../assets/css/morris.css" type="text/css"/>
+<link rel="stylesheet" href="../assets/css/app.css" type="text/css"/>
 <!-- Graph CSS -->
 <link href="../assets/css/font-awesome.css" rel="stylesheet"> 
 <!-- jQuery -->
 <script src="../assets/js/jquery-2.1.4.min.js"></script>
+<script src="../assets/js/sweetalert.min.js"></script>
+<script src="../assets/js/app.js"></script>
 <!-- //jQuery -->
+
+
+<link rel="stylesheet" type="text/css" href="../assets/libs/datatables/DataTables-1.10.16/css/jquery.dataTables.min.css"/>
+<link rel="stylesheet" type="text/css" href="../assets/libs/datatables/DataTables-1.10.16/css/table.css"/>
+<script type="text/javascript" src="../assets/libs/datatables/DataTables-1.10.16/js/jquery.dataTables.js"></script>
+<script type="text/javascript" src="../assets/libs/datatables/DataTables-1.10.16/js/dataTables.bootstrap.js"></script>
 <link href='//fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400' rel='stylesheet' type='text/css'/>
 <link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 <!-- lined-icons -->
 <link rel="stylesheet" href="../assets/css/icon-font.min.css" type='text/css' />
 <!-- //lined-icons -->
-<link rel="stylesheet" type="text/css" href="../assets/libs/datatables/DataTables-1.10.16/css/jquery.dataTables.min.css"/>
-<link rel="stylesheet" type="text/css" href="../assets/libs/datatables/DataTables-1.10.16/css/table.css"/>
-<script type="text/javascript" src="../assets/libs/datatables/DataTables-1.10.16/js/jquery.dataTables.js"></script>
-<script type="text/javascript" src="../assets/libs/datatables/DataTables-1.10.16/js/dataTables.bootstrap.js"></script>
-
-<link rel="stylesheet" type="text/css" href="../assets/libs/chosen/chosen.css" />
-<script type="text/javascript" src="../assets/libs/chosen/chosen.jquery.js"></script>
-<script src="../assets/js/app.js"></script>
 </head> 
 <body>
    <div class="page-container">
@@ -75,17 +77,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<li class="dropdown profile_details_drop">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 											<div class="profile_img">	
-												<span class="prfil-img"><img src="../assets/images/user.png" alt=""> </span> 
+												<span class="prfil-img"><img src="../assets/images/in4.jpg" alt=""> </span> 
 												<div class="user-name">
 													<p><?php print ($_SESSION["nama"]);?></p>
 													<span><?php print ($_SESSION["level"]);?></span>
 												</div>
+												
 												<i class="fa fa-angle-down"></i>
 												<i class="fa fa-angle-up"></i>
 												<div class="clearfix"></div>	
 											</div>	
 										</a>
 										<ul class="dropdown-menu drp-mnu">
+											<li> <a href="#"><i class="fa fa-cog"></i> Settings</a> </li> 
+											<li> <a href="#"><i class="fa fa-user"></i> Profile</a> </li> 
 											<li> <a href="../controller/c_logout.php"><i class="fa fa-sign-out"></i> Logout</a> </li>
 										</ul>
 									</li>
@@ -96,9 +101,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 <!--heder end here-->
 		<ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.php">Halaman Karyawan</a> <i class="fa fa-angle-right"></i></li>
-			<span style="text-transform:capitalize;"><?=$tag;?></span>
-		   </ol>
+                <li class="breadcrumb-item"><a href="index.php">Halaman Admin</a> <i class="fa fa-angle-right"></i></li>
+				<span style="text-transform:capitalize;"><?=$tag;?></span>
+            </ol>
 
 <?PHP
 include "page/".$tag.".php";
@@ -126,8 +131,17 @@ include "page/".$tag.".php";
 										<li><a href="index.php"><i class="fa fa-home"></i> <span>Dashboard</span><div class="clearfix"></div></a></li>
 										
 										
-										 <li id="menu-academico" ><a href="index.php?tag=absensi"><i class="fa fa-user"></i><span>Absen Saya</span><div class="clearfix"></div></a></li>
-									 <li><a href="index.php?tag=slipgaji"><i class="fa  fa-plus-square"></i>  <span>Slip Gaji</span><div class="clearfix"></div></a></li>
+										 <li id="menu-academico" ><a href="index.php?tag=user"><i class="fa fa-user"></i><span>Data User</span><div class="clearfix"></div></a></li>
+									<li><a href="index.php?tag=karyawan"><i class="fa fa-users" aria-hidden="true"></i><span>Data Karyawan</span><div class="clearfix"></div></a></li>
+									<li id="menu-academico" ><a href="index.php?tag=absensi"><i class="fa fa-asl-interpreting (alias)" aria-hidden="true"></i><span>Data Absensi</span><div class="clearfix"></div></a></li>
+									 <li><a href="index.php?tag=bonus"><i class="fa  fa-plus-square"></i>  <span>Data Bonus</span><div class="clearfix"></div></a></li>
+									<li><a href="index.php?tag=gaji"><i class="fa fa-money" aria-hidden="true"></i>  <span>Data Gaji</span><div class="clearfix"></div></a></li>
+							        <li id="menu-academico" ><a href="#"><i class="fa fa-file-text-o"></i>  <span>Laporan</span> <span class="fa fa-angle-right" style="float: right"></span><div class="clearfix"></div></a>
+									 <ul id="menu-academico-sub" >
+											<li id="menu-academico-boletim" ><a href="index.php?tag=rekapgaji">Laporan Rekap Gaji</a></li>
+											<li id="menu-academico-avaliacoes" ><a href="index.php?tag=slipgaji">Slip Gaji</a></li>
+										  </ul>
+									 </li>
 									<li><a href="../controller/c_logout.php"><i class="fa fa-external-link"></i><span>Logout</span><div class="clearfix"></div></a>
 									  
 									</li>
@@ -167,6 +181,10 @@ include "page/".$tag.".php";
 <script src="../assets/js/morris.js"></script>
 <script>
 
+	$(document).ready(function() {
+		$('.datatable').DataTable();
+	} );
+	
 	//$(document).ready(function() {
 		//BOX BUTTON SHOW AND CLOSE
 	  // jQuery('.small-graph-box').hover(function() {
@@ -220,6 +238,11 @@ include "page/".$tag.".php";
 		
 	   
 //	});
+
+$("#success-alert").fadeTo(2000, 500).slideUp(500, function(){
+    $("#success-alert").slideUp(500);
+});
+
 //	</script> 
 </body>
 </html>

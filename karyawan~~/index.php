@@ -43,6 +43,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="../assets/css/font-awesome.css" rel="stylesheet"> 
 <!-- jQuery -->
 <script src="../assets/js/jquery-2.1.4.min.js"></script>
+<script src="../assets/js/sweetalert.min.js"></script>
 <!-- //jQuery -->
 <link href='//fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400' rel='stylesheet' type='text/css'/>
 <link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
@@ -75,7 +76,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<li class="dropdown profile_details_drop">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 											<div class="profile_img">	
-												<span class="prfil-img"><img src="../assets/images/user.png" alt=""> </span> 
+												<span class="prfil-img"><img src="../assets/images/in4.jpg" alt=""> </span> 
 												<div class="user-name">
 													<p><?php print ($_SESSION["nama"]);?></p>
 													<span><?php print ($_SESSION["level"]);?></span>
@@ -86,6 +87,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											</div>	
 										</a>
 										<ul class="dropdown-menu drp-mnu">
+											<li> <a href="#"><i class="fa fa-cog"></i> Settings</a> </li> 
+											<li> <a href="#"><i class="fa fa-user"></i> Profile</a> </li> 
 											<li> <a href="../controller/c_logout.php"><i class="fa fa-sign-out"></i> Logout</a> </li>
 										</ul>
 									</li>

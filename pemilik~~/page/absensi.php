@@ -1,4 +1,3 @@
-<!-- tables -->
 <script type="text/javascript">
     $(document).ready(function() {
       $('.chosen').chosen();
@@ -6,7 +5,7 @@
 	  var dTable;
       var table = $('#table1').dataTable({
 		ajax: {
-			url:  EmployeeUrl + '/index.php?tag=absensi&ajax=true&level=employee&uid=<?php echo $_SESSION["uid"];?>',
+			url:  OwnerUrl + '/index.php?tag=absensi&ajax=true&level=owner&uid=false',
 			type: 'POST',
 			dataType: 'json',
 			data: function(d){
@@ -30,13 +29,13 @@
 		$('.printData').on('click', function(e){
 			e.preventDefault();
 			$.ajax ({
-				url:  EmployeeUrl + '/index.php?tag=absensi&method=print',
+				url:  OwnerUrl + '/index.php?tag=rekapgaji&method=print',
 				type: 'POST',
 				dataType: 'json',
 				data: {table:dTable},
 				success: function(xhr){
 					if(xhr.error){
-						alert("Error, Data tidak valid.")
+						swal("Sorry!", "Data tidak valid...!", "error");
 					}
 					else{
 						window.open(xhr.file);
@@ -45,21 +44,20 @@
 			});
 		});
     });
+	
+	
+	
 </script>
-<!-- //tables -->
-
-
 <!--four-grids here-->
 <div class="agileinfo-grap">
 <div class="agileits-box">
 <header class="agileits-box-header clearfix">
- <div class="grid-form1">
-  	       <h3>Absen Saya</h3>
-  	         <div class="tab-content">
+<div class="grid-form1">
+		<div class="tab-content">
 						<div class="tab-pane active" id="horizontal-form">
 							<form class="form-horizontal">
                                     <div class="form-group">
-									<label for="selector1" class="col-sm-2 control-label">Periode</label>
+									<label for="selector1" class="col-sm-2 control-label">Bulan</label>
 									<div class="col-sm-8"><select name="selector1" id="periode" class="chosen form-control1">
 										<option>- Bulan -</option>
 										<?php echo $Helper->months();?>
@@ -72,24 +70,24 @@
 										<?php echo $Helper->years();?>
 									</select></div>
 								</div>
-                                    <br /><div class="panel-footer">
+                                    <br><div class="panel-footer">
 		<div class="row">
 			<div class="col-sm-8 col-sm-offset-2">
-				<button class="btn-primary viewData btn">Lihat</button>
+				<button class="btn-primary viewData btn">Filter</button>
+				
 			</div>
 		</div>
 	 </div>
 							</form>
 						</div>
 					</div>
-            </div>
-</header>
-
-<hr>
- <div class="grid-form1 dataShow">
-<table width="100%" id="table1" class="display">
-	
-	<thead>
+	</div>
+ <div class="grid-form1">
+  	       <h3>Data Absensi Karyawan</h3>
+  	         <div class="tab-content">	
+    
+   <table id="table1" class="display " cellspacing="0" width="100%">
+        <thead>
            <tr>
                 <th>KODE</th><th>NAMA</th>
 				<th>PERIODE</th>
@@ -111,8 +109,11 @@
 				
             </tr>
         </tfoot>
-  </table>
-
+        
+    </table>
+    
+    
+</header>
 <div class="agileits-box-body clearfix">
 <div id="hero-area"></div>
 </div>

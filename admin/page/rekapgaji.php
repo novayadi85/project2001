@@ -30,8 +30,8 @@
 		
 		$('.printTable').on('click', function(e){
 			e.preventDefault();
-			var periode = $(".periode").val();
-		    var year  =  $(".tahun").val();
+			var periode = $("#periode").val();
+		    var year  =  $("#tahun").val();
 			$.ajax ({
 				url:  adminUrl + '/index.php?tag=rekapgaji&method=print',
 				type: 'POST',
@@ -39,7 +39,7 @@
 				data: {table:dTable , periode:periode , year:year},
 				success: function(xhr){
 					if(xhr.error){
-						swal("Sorry!", "Data tidak valid...!", "error");
+						alert("Error, Data tidak valid.")
 					}
 					else{
 						window.open(xhr.file);
